@@ -9,10 +9,10 @@
 
   <style>
     :root {
-      --bg: #f8fafc;
+      --bg: #b7a29f;
       --text: #0f172a;
       --muted: #64748b;
-      --accent: #1d4ed8;
+      --accent: rgb(74,3,176);
       --accent2: #fbbf24;
       --radius: 26px;
       font-family: 'Outfit', sans-serif;
@@ -30,18 +30,32 @@
       justify-content: space-between;
       align-items: center;
       padding: 32px 48px;
-      position: sticky;
+      position: static;
       top: 0;
-      background: rgba(248,250,252,0.9);
+      background: #b7a29f;
       backdrop-filter: blur(10px);
       z-index: 10;
       border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      font-weight: 900; /* más grueso */
+      font-size: 24px;
+      letter-spacing: -0.7px;
+      color: #000000; /* negro puro */
+      text-shadow:
+      0 0 4px rgba(0,0,0,0.35), /* brillo suave */
+      0 2px 4px rgba(0,0,0,0.0); /* sombra de profundidad */
+    }
+
+    .logo img {
+      width: 70px;
+      height: px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
     }
 
     nav a {
@@ -57,74 +71,82 @@
     }
 
     /* HERO */
-    .hero {
-      position: relative;
-      background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
-      color: white;
-      padding: 160px 20px 140px;
-      text-align: left;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    }
+.hero {
+  position: relative;
+  background: url('IMG_94271.JPG') center /cover no-repeat ;
+  background-position: 50% 30%;
+  color: white;
+  padding: 160px 20px 140px;
+  text-align: left;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* sombra leve arriba de la imagen */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;  /* el texto arriba de la sombra */
+}
 
     .hero .inner {
       max-width: 1000px;
       margin: 0 auto;
     }
 
-    .hero h1 {
-      font-size: 54px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
-
-    .hero p {
-      max-width: 600px;
-      font-size: 18px;
-      color: rgba(255,255,255,0.9);
-    }
-
-    .hero a {
-      display: inline-block;
+    .hero-images {
       margin-top: 40px;
-      background: white;
-      color: var(--accent);
-      padding: 14px 32px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .hero a:hover {
-      transform: translateY(-3px);
-      background: #f8fafc;
+    .hero-images img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-images img:hover {
+      transform: scale(1.05);
     }
 
     /* INTRO */
     .intro {
       max-width: 900px;
       margin: -60px auto 100px;
-      background: white;
+      background: #d6d1c7;
       border-radius: var(--radius);
       padding: 60px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.06);
       text-align: center;
     }
 
-    .intro h2 {
-      font-size: 32px;
-      margin-bottom: 16px;
-      font-weight: 600;
+    .intro-extra {
+      margin-top: 40px;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .intro p {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.7;
+    .intro-extra img {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
 
-    /* SPLIT SECTION — image + text */
+    /* SPLIT SECTION */
     .split {
       display: flex;
       align-items: center;
@@ -139,24 +161,25 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.05);
       width: 100%;
       height: auto;
-      object-fit: contain; /* 🔹 evita recortes */
+      object-fit: cover;
       max-height: 500px;
     }
 
-    .split .text {
-      flex: 1 1 400px;
+    /* NEW EXTRA SPLIT */
+    .split-extra {
+      display: flex;
+      gap: 40px;
+      padding: 80px 48px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .split h3 {
-      font-size: 26px;
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .split p {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
+    .split-extra img {
+      width: 320px;
+      height: 380px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     }
 
     /* HIGHLIGHT */
@@ -166,19 +189,6 @@
       text-align: center;
       padding: 100px 24px;
       clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
-    }
-
-    .highlight h3 {
-      font-size: 30px;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .highlight p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 18px;
-      color: rgba(0,0,0,0.7);
     }
 
     /* SERVICES */
@@ -191,31 +201,15 @@
       padding: 0 24px;
     }
 
-    .card {
-      background: white;
-      padding: 36px;
+    .card img {
+      width: 100%;
       border-radius: var(--radius);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 16px;
+      height: 180px;
+      object-fit: cover;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.07);
-    }
-
-    .card h4 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: var(--text);
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    /* CTA FINAL */
+    /* CTA */
     .cta {
       background: var(--accent);
       color: white;
@@ -225,32 +219,6 @@
       margin: 120px 24px;
     }
 
-    .cta h3 {
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    .cta p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 32px;
-      font-size: 18px;
-    }
-
-    .cta a {
-      background: white;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 14px 34px;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .cta a:hover {
-      background: #f1f5f9;
-      transform: translateY(-3px);
-    }
-
     footer {
       text-align: center;
       padding: 40px 0;
@@ -258,16 +226,66 @@
       font-size: 14px;
     }
 
-    @media (max-width: 800px) {
-      .hero h1 { font-size: 38px; }
-      .split { flex-direction: column; padding: 60px 24px; }
-      .split img { max-height: none; }
-    }
+.btn-primary {
+display: inline-block;
+background: #007aff;
+color: #ffffff;
+padding: 14px 32px;
+border-radius: 14px;
+font-size: 1.1rem;
+font-weight: 600;
+text-decoration: none;
+transition: all 0.25s ease;
+box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+backdrop-filter: blur(8px);
+}
+
+
+.btn-primary:hover {
+background: #0a84ff;
+transform: translateY(-2px);
+box-shadow: 0 12px 28px rgba(10, 132, 255, 0.45);
+}
+
+
+.btn-primary:active {
+transform: translateY(0px) scale(0.97);
+box-shadow: 0 4px 12px rgba(0, 122, 255, 0.25);
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white !important;
+  padding: 14px 34px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 17px;
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.3);
+  transition: all 0.25s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: #1ebe5d;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-btn img {
+  width: 22px;
+  height: 22px;
+}
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">FG Coaching</div>
+    <div class="logo">
+      <img src="IMG_9572.JPG" alt="Logo" />
+      FG Coaching
+    </div>
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#proceso">Proceso</a>
@@ -279,23 +297,36 @@
     <div class="inner">
       <h1>Redefiní el rumbo.<br>Conectá con tu propósito.</h1>
       <p>Un espacio para repensarte, diseñar tu próximo paso y crear una vida más alineada con lo que querés ser.</p>
-      <a href="#contacto">Comenzar ahora</a>
+      <a href="#contacto" class="btn-primary">Comenzar ahora</a>
     </div>
   </section>
 
   <section class="intro">
     <h2>Coaching que te impulsa a mirar distinto</h2>
-    <p>No se trata de exigirte más, sino de entenderte mejor.  
+    <p>No se trata de exigirte más, sino de entenderte mejor.<br>
     A través de un enfoque claro, humano y creativo, trabajamos en ordenar tus ideas, liberar bloqueos y avanzar con intención.</p>
+
+    <div class="intro-extra">
+      <img src="IMG_9520.JPG" />
+
+    </div>
   </section>
 
   <section class="split" id="proceso">
-    <img src="franco.png" alt="Foto de Franco González" />
+    <img src="IMG_9408.JPG" alt="Foto de Franco González" />
     <div class="text">
       <h3>Sobre Franco González</h3>
-      <p>Coach certificado con enfoque en desarrollo personal y claridad profesional.  
-      Combino pensamiento estratégico, trabajo emocional y acompañamiento cercano para ayudarte a ganar foco y energía real.  
-      <br><br>Sesiones online y programas personalizados para personas y equipos.</p>
+      <p>Coach certificado con enfoque en desarrollo personal y claridad profesional.<br><br>
+      Combino pensamiento estratégico, trabajo emocional y acompañamiento cercano para ayudarte a ganar foco y energía real.<br><br>
+      Sesiones online y programas personalizados para personas y equipos.</p>
+    </div>
+  </section>
+
+  <section class="split-extra">
+    <img src="IMG_9521.JPG" />
+    <div>
+      <h3>Tu proceso, a tu ritmo</h3>
+      <p>La idea es que cada sesión te deje con más claridad que antes. Fotos, ejercicios visuales y herramientas creativas para pensar más simple y más profundo.</p>
     </div>
   </section>
 
@@ -322,7 +353,12 @@
   <section class="cta" id="contacto">
     <h3>¿Listo para empezar tu proceso?</h3>
     <p>Coordinemos una primera conversación para conocernos y definir juntos el enfoque ideal para vos.</p>
-    <a href="https://api.whatsapp.com/send/?phone=1123668080&text&type=phone_number&app_absent=0" target="_blank">Contactar por WhatsApp</a>
+    <a class="whatsapp-btn" 
+     href="https://api.whatsapp.com/send/?phone=1123668080&text&type=phone_number&app_absent=0"
+   target="_blank">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+   Contactar por WhatsApp
+</a>
   </section>
 
   <footer>
